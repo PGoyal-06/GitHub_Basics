@@ -1,8 +1,9 @@
-var monkey,ground,obstaclesGroup,bananaGroup,score,bg,bananaImage,obstacleImage;
+var monkey,ground,obstaclesGroup,bananaGroup,score,bg,bananaImage,obstacleImage,foodGroup;
+var bgSprite, monkeySprite;
 
 function preload(){
   
-bg = loadImage("jungle.png");
+bg = loadImage("jungle.jpg");
 
 monkey = loadAnimation("monkey_01.png","monkey_02.png","monkey_03.png","monkey_04.png","monkey_05.png","monkey_06.png","monkey_07.png","monkey_08.png","monkey_09.png","monkey_10.png");
   
@@ -14,14 +15,16 @@ obstacleImage = loadImage("stone.png");
 function setup() {
   createCanvas(400, 400);
   
-var bg = createSprite(200,200,400,20);
-bg = addImage("jungle.png");  
+bgSprite = createSprite(200,200,400,20);
+bgSprite.addImage(bg);  
 bg.velocityX = -6;
 bg.x = bg.width/2;
-  
+ground = createSprite(200,390,400,10);  
  ground.visible = false;
   
- monkey = addAnimation("monkey") 
+monkeySprite = createSprite(390,390,400,20); 
+monkeySprite.addAnimation(monkey); 
+foodGroup = new Group();
 }
 
 function draw() {
